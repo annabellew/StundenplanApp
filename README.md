@@ -52,3 +52,4 @@ web app. In a Cordova web app this is controlled via the *Domain Access
 Whitelist* in the *Build Settings* section of the **Projects** tab. For details
 regarding how to specify your domain whitelist see this Cordova doc page:
 <http://cordova.apache.org/docs/en/4.0.0/guide_appdev_whitelist_index.md.html#Whitelist%20Guide>
+# StudenplanApp initial version
