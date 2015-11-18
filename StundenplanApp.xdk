@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "0c608bf2-2125-416c-b31a-fbff2f310854",
-      "lastModifiedDate": 1445699915439,
+      "lastModifiedDate": 1445704893006,
       "creationDate": 1445698132705
     },
     "XDK-app-designer": "true",
@@ -112,7 +112,7 @@
           "android-targetSdkVersion": "19",
           "android-installLocation": "auto"
         },
-        "isActive_": true,
+        "isActive_": false,
         "appName_": "StundenplanApp",
         "appID_": "xdk.intel.blank.ad.template",
         "appAccess_": {
