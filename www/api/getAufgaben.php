@@ -8,12 +8,12 @@ try {
 } if (isset($error)) {
     echo "<p>$error</p>";
 }
-//echo'<pre>';
+echo'<pre>';
 $all=$result->fetch_all(MYSQLI_ASSOC);
 $all=utf8encodeArray($all);
-//print_r($all);
-//echo'</pre>';
-echo json_encode($all);
+print_r($all);
+echo'</pre>';
+/*echo json_encode($all);*/
 
 $datenbank->close();
 function utf8encodeArray($array) {
