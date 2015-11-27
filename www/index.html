@@ -85,7 +85,8 @@
                         <div class="col uib_col_7 col-0_3-12_3-3 columnHeader" data-uib="layout/col" data-ver="0">
                             <div class="widget-container content-area vertical-col">
 
-                                <a class="widget uib_w_64 d-margins buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="power" data-iconpos="notext">Start</a><span class="uib_shim"></span>
+                                <a class="widget uib_w_64 d-margins buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="back" data-iconpos="notext" id="zurueck" href="#Startseite" data-transition="fade">Start</a>
+                                <span class="uib_shim"></span>
                             </div>
                         </div>
                         <div class="col uib_col_8 col-0_6-12_6-9 columnHeader" data-uib="layout/col" data-ver="0">
@@ -98,7 +99,7 @@
                         <div class="col uib_col_9 col-0_3-12_3-9 columnHeader" data-uib="layout/col" data-ver="0">
                             <div class="widget-container content-area vertical-col">
 
-                                <a class="widget uib_w_65 d-margins buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="gear" data-iconpos="notext">Settings</a><span class="uib_shim"></span>
+                                <a class="widget uib_w_65 d-margins buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="gear" data-iconpos="notext" id="einstellungen" href="#Einstellungen" data-transition="fade"></a><span class="uib_shim"></span>
                             </div>
                         </div>
                         <span class="uib_shim"></span>
@@ -107,17 +108,17 @@
                     <div class="grid urow uib_row_1" data-uib="layout/row" data-ver="0">
                         <div class="col uib_col_1 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
                             <div class="widget-container content-area vertical-col">
-                                <a class="widget uib_w_16 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button">Tag</a><span class="uib_shim"></span>
+                                <a class="widget uib_w_16 d-margins Button_klein" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="tag" href="#mainpage" data-transition="fade">Tag</a><span class="uib_shim"></span>
                             </div>
                         </div>
                         <div class="col uib_col_2 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
                             <div class="widget-container content-area vertical-col center">
-                                <a class="widget uib_w_17 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button">Woche</a><span class="uib_shim"></span>
+                                <a class="widget uib_w_17 d-margins Button_klein" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="woche">Woche</a><span class="uib_shim"></span>
                             </div>
                         </div>
                         <div class="col uib_col_3 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
                             <div class="widget-container content-area vertical-col">
-                                <a class="widget uib_w_18 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button">Monat</a><span class="uib_shim"></span>
+                                <a class="widget uib_w_18 d-margins Button_klein" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="monat">Monat</a><span class="uib_shim"></span>
                             </div>
                         </div>
                         <span class="uib_shim"></span>
@@ -196,7 +197,7 @@
                         <div class="col uib_col_52 col-0_12-12" data-uib="layout/col" data-ver="0">
                             <div class="widget-container content-area vertical-col">
 
-                                <a class="widget uib_w_66 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="plus">Aufgabe hinzufügen</a><span class="uib_shim"></span>
+                                <a class="widget uib_w_66 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="plus" id="neue_aufgaben">Aufgabe hinzufügen</a><span class="uib_shim"></span>
                             </div>
                         </div>
                         <span class="uib_shim"></span>
@@ -209,7 +210,8 @@
 
             <div class="grid grid-pad urow uib_row_5 row-height-5" data-uib="layout/row" data-ver="0">
                 <div class="col uib_col_11 col-0_3-12_3-3" data-uib="layout/col" data-ver="0">
-                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_21 d-margins Button_klein button_gross button_header buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="back" data-iconpos="notext" id="zurueck">zurück</a>
+                    <div class="widget-container content-area vertical-col">
+                        <a class="widget uib_w_21 d-margins Button_klein button_gross button_header buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="zurueck" href="#Startseite" data-transition="fade" data-icon="carat-l" data-iconpos="notext"></a>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -226,7 +228,7 @@
                     </div>
                 </div>
                 <div class="col uib_col_39 col-0_3-12_3-9" data-uib="layout/col" data-ver="0">
-                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_52 d-margins button_gross buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="gear" data-iconpos="notext" id="einstellungen">Button</a>
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_52 d-margins button_gross buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="gear" data-iconpos="notext" id="einstellungen" href="#Einstellungen" data-transition="fade">Button</a>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -352,7 +354,7 @@
 
             <div class="grid grid-pad urow uib_row_7 row-height-7" data-uib="layout/row" data-ver="0">
                 <div class="col uib_col_29 col-0" data-uib="layout/col" data-ver="0">
-                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_43 d-margins button_gross" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="speichern">Speichern</a>
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_43 d-margins button_gross" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="speichern_aufgabe" href="#Aufgaben" data-transition="fade">Speichern</a>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -363,7 +365,7 @@
         <div class="upage vertical-col left" id="Aufgaben" data-role="page">
             <div class="grid grid-pad urow uib_row_8 row-height-8" data-uib="layout/row" data-ver="0">
                 <div class="col uib_col_31 col-0_3-12_3-3" data-uib="layout/col" data-ver="0">
-                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_49 d-margins button_gross buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="carat-l" data-iconpos="notext">Button</a>
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_49 d-margins button_gross buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="carat-l" data-iconpos="notext" id="zurueck">Button</a>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -380,7 +382,7 @@
                     </div>
                 </div>
                 <div class="col uib_col_37 col-0_3-12_3-9" data-uib="layout/col" data-ver="0">
-                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_50 d-margins button_gross buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="gear" data-iconpos="notext">Button</a>
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_50 d-margins button_gross buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="gear" data-iconpos="notext" id="einstellungen" href="#Einstellungen" data-transition="fade">Button</a>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -390,7 +392,7 @@
 
             <div class="grid grid-pad urow uib_row_9 row-height-9" data-uib="layout/row" data-ver="0">
                 <div class="col uib_col_32 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
-                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_45 d-margins Button_klein" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="tag">Tag</a>
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_45 d-margins Button_klein" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="tag" href="#mainpage" data-transition="fade">Tag</a>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -411,6 +413,13 @@
             <div class="grid grid-pad urow uib_row_10 row-height-10" data-uib="layout/row" data-ver="0">
                 <div class="col uib_col_35 col-0_12-12" data-uib="layout/col" data-ver="0">
                     <div class="widget-container content-area vertical-col">
+                        <div class="widget uib_w_67 d-margins" data-uib="media/text" data-ver="0" id="aufgabenuebersicht">
+                            <div class="widget-container left-receptacle"></div>
+                            <div class="widget-container right-receptacle"></div>
+                            <div>
+                                <!--?php include_once "api/showAufgaben.php" ?-->
+                            </div>
+                        </div>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -419,7 +428,7 @@
 
             <div class="grid grid-pad urow uib_row_11 row-height-11" data-uib="layout/row" data-ver="0">
                 <div class="col uib_col_36 col-0_12-12" data-uib="layout/col" data-ver="0">
-                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_48 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="plus" data-iconpos="left" id="neue_aufgaben">Neue Aufgaben</a>
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_48 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="plus" data-iconpos="left" id="Aufgaben_neue_aufgaben">Neue Aufgaben</a>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -430,24 +439,25 @@
 
             <div class="grid grid-pad urow uib_row_16 row-height-16" data-uib="layout/row" data-ver="0">
                 <div class="col uib_col_46 col-0_3-12_3-3" data-uib="layout/col" data-ver="0">
-                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_58 d-margins buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="power" data-iconpos="notext" id="logout">Button</a>
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_75 buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="power" id="logout" data-iconpos="notext">Button</a>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
                 <div class="col uib_col_47 col-0_6-12_6-9" data-uib="layout/col" data-ver="0">
                     <div class="widget-container content-area vertical-col">
-                        <div class="widget uib_w_60 d-margins Header text_header" data-uib="media/text" data-ver="0">
+                        <div class="widget uib_w_77 Header text_header d-margins" data-uib="media/text" data-ver="0">
                             <div class="widget-container left-receptacle"></div>
                             <div class="widget-container right-receptacle"></div>
                             <div>
-                                <p>Stundenplan HTW Chur</p>
+                                <p>HTW Chur Stundenplan</p>
                             </div>
                         </div>
+
                         <span class="uib_shim"></span>
                     </div>
                 </div>
                 <div class="col uib_col_48 col-0_3-12_3-9" data-uib="layout/col" data-ver="0">
-                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_59 d-margins buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="gear" data-iconpos="notext" id="einstellungen">Button</a>
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_76 buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="gear" data-iconpos="notext" id="einstellungen" href="#Einstellungen" data-transition="fade">Button</a>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -456,7 +466,7 @@
             </div>
             <div class="grid grid-pad urow uib_row_13 row-height-13" data-uib="layout/row" data-ver="0">
                 <div class="col uib_col_41 col-0_12-12" data-uib="layout/col" data-ver="0">
-                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_57 d-margins button_gross" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="tag">Tag</a>
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_57 d-margins button_gross" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="tag" href="#mainpage" data-transition="fade">Tag</a>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -489,6 +499,150 @@
                 </div>
                 <span class="uib_shim"></span>
             </div>
+        </div>
+        <div class="upage vertical-col left" id="Farbe" data-role="page">
+
+            <div class="grid grid-pad urow uib_row_25 row-height-25" data-uib="layout/row" data-ver="0">
+                <div class="col uib_col_61 col-0_3-12_3-3" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_73 buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="zurueck_aufgaben" data-icon="carat-l" data-iconpos="notext" href="#Aufgaben" data-transition="fade">Button</a>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div class="col uib_col_62 col-0_6-12_6-9" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+                        <div class="widget uib_w_78 d-margins Header text_header" data-uib="media/text" data-ver="0">
+                            <div class="widget-container left-receptacle"></div>
+                            <div class="widget-container right-receptacle"></div>
+                            <div>
+                                <p>Farbe anpassen</p>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div class="col uib_col_63 col-0_3-12_3-9" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+
+                <span class="uib_shim"></span>
+            </div>
+            <div class="table-thing with-label widget uib_w_79 d-margins" data-uib="jquery_mobile/select" data-ver="0">
+                <label class="narrow-control label-top-left">Modul</label>
+                <div data-role="fieldgroup" class+="" "wide-control"="">
+                    <select>
+                        <option>Fach 1</option>
+                        <option>Fach 2</option>
+                        <option>Fach 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table-thing with-label no_wrap widget uib_w_80 d-margins" data-uib="jquery_mobile/radio_button_group" data-ver="0">
+                <label class="narrow-control label-top-left">Fach</label>
+                <fieldset data-role="controlgroup" class="widget-container wide-control uib-jqm-flex" data-child-name="Farbe">
+                    <div class="ui-radio widget uib_w_81" data-uib="jquery_mobile/radio_button" data-ver="0">
+                        <label>Orange
+                            <input type="radio" name="Farbe">
+                        </label>
+                    </div>
+                    <div class="ui-radio widget uib_w_86" data-uib="jquery_mobile/radio_button" data-ver="0">
+                        <label>Gelb
+                            <input type="radio" name="Farbe">
+                        </label>
+                    </div>
+                    <div class="ui-radio widget uib_w_82" data-uib="jquery_mobile/radio_button" data-ver="0">
+                        <label>Blau
+                            <input type="radio" name="Farbe">
+                        </label>
+                    </div>
+                    <div class="ui-radio widget uib_w_83" data-uib="jquery_mobile/radio_button" data-ver="0">
+                        <label>Grün
+                            <input type="radio" name="Farbe">
+                        </label>
+                    </div>
+                    <div class="ui-radio widget uib_w_84" data-uib="jquery_mobile/radio_button" data-ver="0">
+                        <label>Rot
+                            <input type="radio" name="Farbe">
+                        </label>
+                    </div>
+                    <div class="ui-radio widget uib_w_85" data-uib="jquery_mobile/radio_button" data-ver="0">
+                        <label>Violet
+                            <input type="radio" name="Farbe">
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="grid grid-pad urow uib_row_26 row-height-26" data-uib="layout/row" data-ver="0">
+                <div class="col uib_col_64 col-0_12-12" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_87 button_gross" data-uib="jquery_mobile/button" data-ver="0" data-role="button" href="#Farbe" data-transition="fade">Farbe auswählen</a>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <span class="uib_shim"></span>
+            </div>
+
+            <div class="grid grid-pad urow uib_row_27 row-height-27" data-uib="layout/row" data-ver="0">
+                <div class="col uib_col_65 col-0_6-12" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_88 button_mittel" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="speichern" href="#Einstellungen" data-transition="fade">Speichern</a>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div class="col uib_col_66 col-0_6-12" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_89 button_mittel" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="abbrechen_farbe" href="#Einstellungen" data-transition="fade">Abbrechen</a>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+
+                <span class="uib_shim"></span>
+            </div>
+        </div>
+        <div class="upage vertical-col left" id="Einstellungen" data-role="page">
+            <div class="grid grid-pad urow uib_row_21 row-height-21 headerBackground" data-uib="layout/row" data-ver="0">
+                <div class="col uib_col_53 col-0_3-12_3-3" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_74 buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="carat-l" data-iconpos="notext" id="zurueck" href="#Startseite" data-transition="fade">Button</a>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div class="col uib_col_54 col-0_6-12_6-9 columnHeader" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+                        <div class="widget uib_w_69 d-margins Header text_header" data-uib="media/text" data-ver="0">
+                            <div class="widget-container left-receptacle"></div>
+                            <div class="widget-container right-receptacle"></div>
+                            <div>
+                                <p>Einstellungen</p>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div class="col uib_col_55 col-0_3-12_3-9" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+
+                <span class="uib_shim"></span>
+            </div>
+
+            <div class="grid grid-pad urow uib_row_22 row-height-22" data-uib="layout/row" data-ver="0">
+                <div class="col uib_col_56 col-0_12-12" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_70 d-margins button_gross" data-uib="jquery_mobile/button" data-ver="0" data-role="button">Daten einbinden</a>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <span class="uib_shim"></span>
+            </div>
+
+            <div class="grid grid-pad urow uib_row_23 row-height-23" data-uib="layout/row" data-ver="0">
+                <div class="col uib_col_57 col-0_12-12" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_71 d-margins button_gross" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="farbe" href="#Farbe" data-transition="fade">Farbe anpassen</a>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <span class="uib_shim"></span>
+            </div>
+            <a class="widget uib_w_72 d-margins button_gross" data-uib="jquery_mobile/button" data-ver="0" data-role="button">Synchronisieren</a>
         </div>
 
     </body>

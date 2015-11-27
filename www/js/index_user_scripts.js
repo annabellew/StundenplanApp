@@ -10,17 +10,19 @@
     
     
      /* button  Start */
-    $(document).on("click", ".uib_w_64", function(evt)
-    {
-         /*global activate_page */
-         activate_page("#mainpage"); 
-    });
+    
     
         /* button  Aufgabe hinzufügen */
     $(document).on("click", ".uib_w_66", function(evt)
     {
          /*global activate_page */
          activate_page("#Aufgabe_erstellen"); 
+    });
+    
+        /* button  #Aufgaben_neue_aufgaben */
+    $(document).on("click", "#Aufgaben_neue_aufgaben", function(evt)
+    {
+ 
     });
     
     }

@@ -25,7 +25,7 @@ function utf8encodeArray($array) {
             $array[$key]=utf8_encode($value);
         }
     }
-    return $array;
+    echo $array;
 }
 
 
