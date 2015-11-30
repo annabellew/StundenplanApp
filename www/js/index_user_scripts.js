@@ -18,7 +18,25 @@
         /* button  #Aufgaben_neue_aufgaben */
     $(document).on("click", "#Aufgaben_neue_aufgaben", function(evt)
     {
+        var request=new XMLHttpRequest();
+        request.open('GET', "http://localhost/api/getAufgaben.php");
+        request.onreadystatechange = function() {
+        if ((request.readyState === 4) && (request.status === 200)) {
+            alert(request.responseText);
+            var items = JSON.parse(request.responseText) ;
+            alert(items.length);
+            var output = '<ul>';
+            for (var key in items) {
+                output += '<li>' + items[key].titel + '</li>';   
+            }
+            output += '</ul>';
+            document.getElementById('aufgabenuebersicht').innerHTML = output;
+            }
+            
+            
  
+    }
+    request.send();
     });
     
         /* button  #Woche_neue-aufgaben */
