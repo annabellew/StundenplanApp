@@ -25,15 +25,13 @@
             alert(request.responseText);
             var items = JSON.parse(request.responseText) ;
             alert(items.length);
-            var output = '<ul>';
+            var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie>';
             for (var key in items) {
-                output += '<li>' + items[key].titel + '</li>';   
+                output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
             }
-            output += '</ul>';
+            output += '</table>';
             document.getElementById('aufgabenuebersicht').innerHTML = output;
             }
-            
-            
  
     }
     request.send();
