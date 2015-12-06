@@ -82,21 +82,32 @@
                     <div data-role="controlgroup" class="uib-jqm-flex widget uib_w_4 d-margins" data-uib="jquery_mobile/button_group" data-ver="0">
                     </div>
                     <div class="grid urow uib_row_3 headerFooter" data-uib="layout/row" data-ver="0">
-                        <div class="col uib_col_7 col-0_3-12_3-3 columnHeader" data-uib="layout/col" data-ver="0">
+                        <div class="col uib_col_7 columnHeader col-0_2-12_2-4_2-4" data-uib="layout/col" data-ver="0">
                             <div class="widget-container content-area vertical-col">
 
-                                <a class="widget uib_w_64 d-margins buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="carat-l" data-iconpos="notext" id="zurueck" href="#Startseite" data-transition="fade">Start</a>
+                                <a class="widget uib_w_64 d-margins buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="power" data-iconpos="notext" id="zurueck" href="#Startseite" data-transition="fade">Start</a>
                                 <span class="uib_shim"></span>
                             </div>
                         </div>
-                        <div class="col uib_col_8 col-0_6-12_6-9 columnHeader" data-uib="layout/col" data-ver="0">
+                        <div class="col uib_col_78 col-0_2-12_2-4_2-4" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="widget uib_w_99 d-margins buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="carat-l" data-iconpos="notext">Button</a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_8 columnHeader col-0_4-12_4-8_4-4" data-uib="layout/col" data-ver="0">
                             <div class="widget-container content-area vertical-col center">
-                                <p>Tagesansicht</p>
-                                <div id="currentDate"></div>
+                                <div id="currentDate" style="vertical-align:center"></div>
                                 <span class="uib_shim"></span>
                             </div>
                         </div>
-                        <div class="col uib_col_9 col-0_3-12_3-9 columnHeader" data-uib="layout/col" data-ver="0">
+                        <div class="col uib_col_79 col-0_2-12_2-8_2-4" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="widget uib_w_100 d-margins buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="carat-r" data-iconpos="notext" id="next_day">Button</a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_9 columnHeader col-0_2-12_2-8_2-4" data-uib="layout/col" data-ver="0">
                             <div class="widget-container content-area vertical-col">
 
                                 <a class="widget uib_w_65 d-margins buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="gear" data-iconpos="notext" id="einstellungen" href="#Einstellungen" data-transition="fade"></a><span class="uib_shim"></span>
@@ -126,33 +137,8 @@
 
                     <div class="grid grid-pad urow uib_row_18 row-height-18" data-uib="layout/row" data-ver="0">
                         <div class="col uib_col_50 col-0_12-12" data-uib="layout/col" data-ver="0">
-                            <div class="widget-container content-area vertical-col">
-                                <p>Vorlesungen</p>
-                                <table style="width:100%" border="1">
-                                    <tbody>
-                                        <tr>
-                                            <td>Zeit</td>
-                                            <td>Modul</td>
-                                            <td>Ort</td>
-                                            <td>Raum</td>
-                                            <td>DozentIn</td>
-                                        </tr>
-                                        <tr>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                        </tr>
-                                        <tr>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div id="vorlesungen_tabelle" class="widget-container content-area vertical-col">
+
                                 <span class="uib_shim"></span>
                             </div>
                         </div>
@@ -161,31 +147,7 @@
 
                     <div class="grid grid-pad urow uib_row_19 row-height-19" data-uib="layout/row" data-ver="0">
                         <div class="col uib_col_51 col-0_12-12" data-uib="layout/col" data-ver="0">
-                            <div class="widget-container content-area vertical-col">
-
-                                <p>Aufgaben</p>
-                                <table style="width:100%" border="1">
-                                    <tbody>
-                                        <tr>
-                                            <td>Datum</td>
-                                            <td>Modul</td>
-                                            <td>Titel</td>
-                                            <td>Kategorie</td>
-                                        </tr>
-                                        <tr>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                        </tr>
-                                        <tr>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                            <td>bla</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div id="aufgaben_tabelle" class="widget-container content-area vertical-col">
 
                                 <span class="uib_shim"></span>
                             </div>
@@ -637,6 +599,70 @@
                 <span class="uib_shim"></span>
             </div>
             <a class="widget uib_w_72 d-margins button_gross" data-uib="jquery_mobile/button" data-ver="0" data-role="button">Synchronisieren</a>
+        </div>
+        <div class="upage vertical-col left" id="Monatsansicht" data-role="page">
+            <div class="grid grid-pad urow uib_row_28 row-height-28 headerFooter" data-uib="layout/row" data-ver="0">
+                <div class="col uib_col_68 columnHeader headerFooterStyle headerFooter col-0_3-12_3-3" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+
+                        <a class="widget uib_w_90 d-margins buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="power" data-iconpos="notext">Button</a><span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="Wochennummer" class="col uib_col_69 columnHeader col-0_6-12_6-9" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col center">
+                        <p>Monatsansicht</p>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div class="col uib_col_67 columnHeader col-0_3-12_3-9" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+
+                        <a class="widget uib_w_91 d-margins buttonHeader" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="gear" data-iconpos="notext">Button</a><span class="uib_shim"></span>
+                    </div>
+                </div>
+                <span class="uib_shim"></span>
+            </div>
+            <div class="grid grid-pad urow uib_row_34 row-height-34" data-uib="layout/row" data-ver="0">
+                <div class="col uib_col_76 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+
+                        <a class="widget uib_w_96 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button">Tag</a><span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div class="col uib_col_77 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+
+                        <a class="widget uib_w_97 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button">Woche</a><span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div class="col uib_col_75 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+
+                        <a class="widget uib_w_98 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button">Monat</a><span class="uib_shim"></span>
+                    </div>
+                </div>
+                <span class="uib_shim"></span>
+            </div>
+
+            <div class="grid grid-pad urow uib_row_31 row-height-31" data-uib="layout/row" data-ver="0">
+                <div class="col uib_col_72 col-0_12-12" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <span class="uib_shim"></span>
+            </div>
+
+            <div class="grid grid-pad urow uib_row_33 row-height-33" data-uib="layout/row" data-ver="0">
+                <div class="col uib_col_74 col-0_12-12" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+
+                        <a class="widget uib_w_95 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="plus">Aufgabe hinzufügen</a><span class="uib_shim"></span>
+                    </div>
+                </div>
+                <span class="uib_shim"></span>
+            </div>
         </div>
 
     </body>
