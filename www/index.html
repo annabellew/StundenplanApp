@@ -376,7 +376,7 @@
             <div class="grid grid-pad urow uib_row_10 row-height-10" data-uib="layout/row" data-ver="0">
                 <div class="col uib_col_35 col-0_12-12" data-uib="layout/col" data-ver="0">
                     <div class="widget-container content-area vertical-col">
-                        <div id="aufgabenuebersicht"></div>
+                        <div id="Aufgaben_aufgaben" onload="aufgabenLaden();"></div>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -385,7 +385,7 @@
 
             <div class="grid grid-pad urow uib_row_11 row-height-11" data-uib="layout/row" data-ver="0">
                 <div class="col uib_col_36 col-0_12-12" data-uib="layout/col" data-ver="0">
-                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_48 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" data-icon="plus" data-iconpos="left" id="Aufgaben_neueAufgaben">Neue Aufgaben</a>
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_101 d-margins" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="Aufgaben_neueAufgaben" data-icon="plus" href="#Aufgabe_erstellen" data-transition="fade">neue Aufgaben</a>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -665,7 +665,9 @@
                 <span class="uib_shim"></span>
             </div>
         </div>
-
+        <script type="text/javascript">
+            aufgabenLaden();
+        </script>
     </body>
 
 </html>

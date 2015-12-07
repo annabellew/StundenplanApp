@@ -61,28 +61,6 @@
         request2.send();
     });
     
-        /* button  #Aufgaben_neue_aufgaben */
-    $(document).on("click", "#Aufgaben_neue_aufgaben", function(evt)
-    {
-        var request=new XMLHttpRequest();
-        request.open('GET', "http://localhost/api/getAufgaben.php");
-        request.onreadystatechange = function() {
-        if ((request.readyState === 4) && (request.status === 200)) {
-            alert(request.responseText);
-            var items = JSON.parse(request.responseText) ;
-            alert(items.length);
-            var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie>';
-            for (var key in items) {
-                output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
-            }
-            output += '</table>';
-            document.getElementById('aufgabenuebersicht').innerHTML = output;
-            }
- 
-    }
-    request.send();
-    });
-    
         /* button  #Woche_neue-aufgaben */
     $(document).on("click", "#Woche_neue-aufgaben", function(evt)
     {
@@ -109,6 +87,13 @@
     {
          /*global activate_page */
          activate_page("#Monatsansicht"); 
+    });
+    
+        /* button  #Aufgaben_neueAufgaben */
+    $(document).on("click", "#Aufgaben_neueAufgaben", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Aufgabe_erstellen"); 
     });
     
     }
@@ -211,3 +196,24 @@ window.onload = function () {
             ansichtsdatum = new Date(ansichtsdatum);
             document.getElementById("currentDay").innerHTML = Tagesdatum();
     });
+
+
+function aufgabenLaden(){
+     var request=new XMLHttpRequest();
+        request.open('GET', "http://localhost/api/getAufgaben.php");
+        request.onreadystatechange = function() {
+        if ((request.readyState === 4) && (request.status === 200)) {
+            alert(request.responseText);
+            var items = JSON.parse(request.responseText) ;
+            alert(items.length);
+            var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie>';
+            for (var key in items) {
+                output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
+            }
+            output += '</table>';
+            document.getElementById('Aufgaben_aufgaben').innerHTML = output;
+            }
+ 
+    }
+    request.send();
+}
