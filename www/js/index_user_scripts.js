@@ -13,7 +13,53 @@
     
     
         /* button  Aufgabe hinzufügen */
-    
+     
+        /* button Tag */
+     $(document).on("click", "#tag", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#mainpage"); 
+         
+         /* Tabelle Kurse */
+         /* To do: nur Kurse des gewählten Tages ausgeben */
+        var request1=new XMLHttpRequest();
+        request.open('GET', "http://localhost/api/getKurs.php");
+        request.onreadystatechange = function() {
+        if ((request.readyState === 4) && (request.status === 200)) {
+            //alert(request.responseText);
+            var items = JSON.parse(request.responseText) ;
+            //alert(items.length);
+            var output = '<p>Kurse</p><table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie>';
+            for (var key in items) {
+                output += '<tr><td>' + items[key].idKurs + '</td><td>' + items[key].bezeichnung + '</td><td>' + items[key].Dozent_idDozent + '</td></tr>';   
+            }
+            output += '</table>';
+            document.getElementById('vorlesungen_tabelle').innerHTML = output;
+            }
+ 
+        }
+             
+        /* Tabelle Aufgaben */
+         /* To do: nur Aufgaben des gewählten Tages ausgeben */
+         var request2=new XMLHttpRequest();
+            request.open('GET', "http://localhost/api/getAufgaben.php");
+            request.onreadystatechange = function() {
+            if ((request.readyState === 4) && (request.status === 200)) {
+                alert(request.responseText);
+                var items = JSON.parse(request.responseText) ;
+                alert(items.length);
+                var output = '<p>Aufgaben</p><table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie>';
+                for (var key in items) {
+                    output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
+                }
+                output += '</table>';
+                document.getElementById('aufgaben_tabelle').innerHTML = output;
+                }
+
+        }
+        request1.send();
+        request2.send();
+    });
     
         /* button  #Aufgaben_neue_aufgaben */
     $(document).on("click", "#Aufgaben_neue_aufgaben", function(evt)
@@ -25,15 +71,13 @@
             alert(request.responseText);
             var items = JSON.parse(request.responseText) ;
             alert(items.length);
-            var output = '<ul>';
+            var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie>';
             for (var key in items) {
-                output += '<li>' + items[key].titel + '</li>';   
+                output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
             }
-            output += '</ul>';
+            output += '</table>';
             document.getElementById('aufgabenuebersicht').innerHTML = output;
             }
-            
-            
  
     }
     request.send();
@@ -46,31 +90,76 @@
          activate_page("#Aufgabe_erstellen"); 
     });
     
+        /* button  #zurueck */
+    $(document).on("click", "#zurueck", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Startseite"); 
+    });
+    
+        /* button  #einstellungen */
+    $(document).on("click", "#einstellungen", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Einstellungen"); 
+    });
+    
+        /* button  #monat */
+    $(document).on("click", "#monat", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Monatsansicht"); 
+    });
+    
     }
  document.addEventListener("app.Ready", register_event_handlers, false);
 })();
 
-//Aktuelles Datum im Header von Tagesansicht anzeigen
-//document.getElementById("current_date").innerHTML = getDay().getMonth().getFullYear();
+//Aktuell gewähltes Datum im Header von Tagesansicht anzeigen
+//Default ist das aktuelle Datum
+
+var ansichtsdatum = new Date();
 
 function Tagesdatum() {
-    var d = new Date();
-    var year = d.getFullYear();
-    var day = d.getDate();
+    var year = ansichtsdatum.getFullYear();
+    var day = ansichtsdatum.getDate();
     var month = new Array();
-    month[0] = "January";
-    month[1] = "February";
-    month[2] = "March";
+    month[0] = "Januar";
+    month[1] = "Februar";
+    month[2] = "März";
     month[3] = "April";
-    month[4] = "May";
-    month[5] = "June";
-    month[6] = "July";
+    month[4] = "Mai";
+    month[5] = "Juni";
+    month[6] = "Juli";
     month[7] = "August";
     month[8] = "September";
-    month[9] = "October";
+    month[9] = "Oktober";
     month[10] = "November";
-    month[11] = "December";
-    var n = month[d.getMonth()]; 
-    document.getElementById("currentDate").innerHTML = day + "." + n +"." + year;
-};
-window.onload=Tagesdatum;
+    month[11] = "Dezember";
+    var n = month[ansichtsdatum.getMonth()]; 
+    var currentDate = day + ". " + n +" " + year;
+    return currentDate;
+    //return day + ". " + n +" " + year;
+    //document.getElementById("currentDay").innerHTML = day + ". " + n +" " + year;
+}
+
+//window.onload=Tagesdatum;
+window.onload = function () {
+    document.getElementById("currentDay").innerHTML = Tagesdatum();
+}
+
+ /* button  #tag_danach */
+   $(document).on("click", "#tag_danach", function(evt)
+		{
+            ansichtsdatum = ansichtsdatum.setDate(ansichtsdatum.getDate() + 1);
+            ansichtsdatum = new Date(ansichtsdatum);
+            document.getElementById("currentDay").innerHTML = Tagesdatum();
+		});
+
+/* button  #tag_davor */
+    $(document).on("click", "#tag_davor", function(evt)
+    {
+            ansichtsdatum = ansichtsdatum.setDate(ansichtsdatum.getDate() - 1);
+            ansichtsdatum = new Date(ansichtsdatum);
+            document.getElementById("currentDay").innerHTML = Tagesdatum();
+    });
