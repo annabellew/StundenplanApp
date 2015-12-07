@@ -197,21 +197,42 @@ window.onload = function () {
             document.getElementById("currentDay").innerHTML = Tagesdatum();
     });
 
-
+//Aufgaben auf #Aufgaben anzeigen
 function aufgabenLaden(){
      var request=new XMLHttpRequest();
         request.open('GET', "http://localhost/api/getAufgaben.php");
         request.onreadystatechange = function() {
         if ((request.readyState === 4) && (request.status === 200)) {
-            alert(request.responseText);
+            //alert(request.responseText);
             var items = JSON.parse(request.responseText) ;
-            alert(items.length);
+            //alert(items.length);
             var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie>';
             for (var key in items) {
                 output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
             }
             output += '</table>';
             document.getElementById('Aufgaben_aufgaben').innerHTML = output;
+            }
+ 
+    }
+    request.send();
+}
+
+//Kategorien in Auswahlmenü annzeigen
+function kategorienLaden(){
+     var request=new XMLHttpRequest();
+        request.open('GET', "http://localhost/api/getKategorien.php");
+        request.onreadystatechange = function() {
+        if ((request.readyState === 4) && (request.status === 200)) {
+            //alert(request.responseText);
+            var items = JSON.parse(request.responseText) ;
+            //alert(items.length);
+            var output = "";
+            for (var key in items) {
+                output += '<option value='+ items[key].idkategorie + '>' + items[key].kategorieName + '</option>';   
+            }
+    
+            document.getElementById('AufgabeErstellen_kategorie').innerHTML = output;
             }
  
     }
