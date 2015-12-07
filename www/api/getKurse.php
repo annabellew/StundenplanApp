@@ -1,7 +1,7 @@
 <?php
 try {
     require_once 'dbConnect.php';
-	$Kurs_idKurs=$_GET['Kurs_idKurs'];
+	
 	
     $sql= "SELECT * FROM kurs WHERE idKurs='$Kurs_idKurs'";
     $result=$datenbank->query($sql);
@@ -27,7 +27,7 @@ function utf8encodeArray($array) {
             $array[$key]=utf8_encode($value);
         }
     }
-    $_SESSION["Daten"] = $array;
+    return = $arraykurse;
 }
 
 

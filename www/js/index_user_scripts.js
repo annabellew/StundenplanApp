@@ -238,3 +238,23 @@ function kategorienLaden(){
     }
     request.send();
 }
+
+function BenutzerkurseLaden(){
+     var request=new XMLHttpRequest();
+        request.open('GET', "http://localhost/api/getBenutzerkurse.php");
+        request.onreadystatechange = function() {
+        if ((request.readyState === 4) && (request.status === 200)) {
+            alert(request.responseText);
+            var items = JSON.parse(request.responseText) ;
+            alert(items.length);
+            var output = "";
+            for (var key in items) {
+                output += '<option value='+ items[key].idkategorie + '>' + items[key].kategorieName + '</option>';   
+            }
+    
+            document.getElementById('AufgabeErstellen_kurs').innerHTML = output;
+            }
+ 
+    }
+    request.send();
+}
