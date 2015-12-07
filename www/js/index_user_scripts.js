@@ -196,7 +196,7 @@ window.onload = function () {
                     output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
                 }
             output += '</table>';
-            document.getElementById('aufgabentag').innerHTML = output;
+            document.getElementById('mainpage_aufgaben').innerHTML = output;
             }
  
             }
