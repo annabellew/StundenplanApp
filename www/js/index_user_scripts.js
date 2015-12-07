@@ -142,6 +142,21 @@ function Tagesdatum() {
     //return day + ". " + n +" " + year;
     //document.getElementById("currentDay").innerHTML = day + ". " + n +" " + year;
 }
+function Tagesdatum_msql (ansichtsdatum){
+    var currentDate_msql="";
+    var month=ansichtsdatum.getMonth();
+    month++;
+    var currentDate_msql=currentDate_msql+ansichtsdatum.getFullYear()+"-"+month+"-";
+    
+    var Tag=ansichtsdatum.getDate();
+    if (Tag.length>1){
+         var currentDate_msql=currentDate_msql+ansichtsdatum.getDate();
+    }
+    else Tag="0"+Tag;
+    var currentDate_msql=currentDate_msql+Tag;
+    
+    return currentDate_msql;
+}
 
 //window.onload=Tagesdatum;
 window.onload = function () {
@@ -154,6 +169,28 @@ window.onload = function () {
             ansichtsdatum = ansichtsdatum.setDate(ansichtsdatum.getDate() + 1);
             ansichtsdatum = new Date(ansichtsdatum);
             document.getElementById("currentDay").innerHTML = Tagesdatum();
+       
+            alert(Tagesdatum_msql(ansichtsdatum));
+       
+            //hole Aufgaben für diesen Tag
+            var request=new XMLHttpRequest();
+            request.open('GET', "http://localhost/api/getAufgabeTag.php?ansichtsdatum="+Tagesdatum_msql(ansichtsdatum));
+            request.onreadystatechange = function() {
+            if ((request.readyState === 4) && (request.status === 200)) {
+                alert(request.responseText);
+                var items = JSON.parse(request.responseText) ;
+                alert(items.length);
+                var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie>';
+                for (var key in items) {
+                    output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
+                }
+            output += '</table>';
+            document.getElementById('aufgabentag').innerHTML = output;
+            }
+ 
+            }
+        request.send();
+       
 		});
 
 /* button  #tag_davor */
