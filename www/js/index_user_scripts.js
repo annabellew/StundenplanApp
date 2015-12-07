@@ -111,55 +111,6 @@
          activate_page("#Monatsansicht"); 
     });
     
-        /* button  Aufgabe hinzufügen */
-    $(document).on("click", ".uib_w_95", function(evt)
-    {
-         /*global activate_page */
-         activate_page("#Aufgabe_erstellen"); 
-    });
-    
-        /* button  #woche */
-    $(document).on("click", "#woche", function(evt)
-    {
-         /*global activate_page */
-         activate_page("#Monatsansicht"); 
-    });
-    
-        /* button  #tag_wochenansicht */
-    $(document).on("click", "#tag_wochenansicht", function(evt)
-    {
-         /*global activate_page */
-         activate_page("#Startseite"); 
-    });
-    
-        /* button  #neueAufgabe_wochenansicht */
-    $(document).on("click", "#neueAufgabe_wochenansicht", function(evt)
-    {
-         /*global activate_page */
-         activate_page("#Aufgabe_erstellen"); 
-    });
-    
-        /* button  #monat_wochenansicht */
-    $(document).on("click", "#monat_wochenansicht", function(evt)
-    {
-         /*global activate_page */
-         activate_page("#Monatsansicht"); 
-    });
-    
-        /* button  #woche_wochenansicht */
-    $(document).on("click", "#woche_wochenansicht", function(evt)
-    {
-         /*global activate_page */
-         activate_page("#Wochenansicht"); 
-    });
-    
-        /* button  #einstellungen_wochenansicht */
-    $(document).on("click", "#einstellungen_wochenansicht", function(evt)
-    {
-         /*global activate_page */
-         activate_page("#Einstellungen"); 
-    });
-    
     }
  document.addEventListener("app.Ready", register_event_handlers, false);
 })();
@@ -218,35 +169,9 @@ function Tagesdatum_msql (ansichtsdatum){
     return currentDate_msql;
 }
 
-//Ansichtsmonat abfragen
-function Monat() {
-    var month = new Array();
-    month[0] = "Januar";
-    month[1] = "Februar";
-    month[2] = "März";
-    month[3] = "April";
-    month[4] = "Mai";
-    month[5] = "Juni";
-    month[6] = "Juli";
-    month[7] = "August";
-    month[8] = "September";
-    month[9] = "Oktober";
-    month[10] = "November";
-    month[11] = "Dezember";
-    var n = month[ansichtsdatum.getMonth()]; 
-    return n;
-}
-
-//Beim Laden der Tagesansicht soll das aktuelle Datum
-//angezeigt werden
+//window.onload=Tagesdatum;
 window.onload = function () {
     document.getElementById("currentDay").innerHTML = Tagesdatum();
-}
-
-//Beim Laden der Monatsansicht soll der aktuelle Monat
-//angezeigt werden
-window.onload = function () {
-    document.getElementById("currentMonth").innerHTML = Monat();
 }
 
  /* button  #tag_danach */
