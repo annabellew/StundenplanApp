@@ -1,7 +1,9 @@
 <?php
 try {
     require_once 'dbConnect.php';
-    $sql= 'SELECT * FROM aufgabe WHERE Benutzer_idBenutzer=1';
+	$ansichtsdatum=$_GET['ansichtsdatum'];
+	
+    $sql= "SELECT * FROM kurs WHERE datum='$ansichtsdatum'";
     $result=$datenbank->query($sql);
 } catch (Exception $e) {
     $error = $e->getMessage();
@@ -25,7 +27,7 @@ function utf8encodeArray($array) {
             $array[$key]=utf8_encode($value);
         }
     }
-    return $array;
+    $_SESSION["Daten"] = $array;
 }
 
 

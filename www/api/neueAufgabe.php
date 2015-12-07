@@ -1,15 +1,18 @@
 <?php
+include_once "getKurse.php";
+    
+$titel=$_GET['titel'];
+$datum=$_GET['datum'];
+//$bemerkung=$_GET['bemerkung'];
 
-
-$nachname=$_GET['nachname'];
-$vorname=$_GET['vorname'];
+echo $_SESSION["Daten"];
 
 try {
     require_once 'dbConnect.php';
-    $sql = "INSERT INTO dozent (idDozent, nachname, vorname) VALUES (default, '{$nachname}', '{$vorname}')";
+    $sql = "INSERT INTO `mydb`.`aufgabe` (`idAufgabe`, `titel`, `datum`, `bemerkung`, `Kurs_idKurs`, `Kurs_Dozent_idDozent`, `erinnerung`, `zeit`, `Benutzer_idBenutzer`, `kalenderwoche`, `kategorie_idkategorie`) VALUES (default, '{$titel}', '{$datum}', NULL, '{$Kurs_idKurs}', '6', NULL, NULL, '1', '47', '1')";
     $result = $datenbank->query($sql);
     echo 'Rows affected: ' . $datenbank->affected_rows . '<br>';
-    echo $result . '<br>';
+    //echo $result . '<br>';
     if($result){
         // $result ist 1 wenn das insert statement ausgeführt wurde, sonst ist es leer
         $response=array("fehlercode"=>"1","botschaft"=>"Benutzer gespeichert!");
