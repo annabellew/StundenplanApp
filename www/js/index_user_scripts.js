@@ -146,14 +146,25 @@ function Tagesdatum_msql (ansichtsdatum){
     var currentDate_msql="";
     var month=ansichtsdatum.getMonth();
     month++;
-    var currentDate_msql=currentDate_msql+ansichtsdatum.getFullYear()+"-"+month+"-";
+    month=month.toString();
     
-    var Tag=ansichtsdatum.getDate();
-    if (Tag.length>1){
+    if (1<(month.length)){
+         var currentDate_msql=currentDate_msql+ansichtsdatum.getFullYear()+"-"+month+"-";
+    }
+    else {
+    month="0"+month;    
+    var currentDate_msql=currentDate_msql+ansichtsdatum.getFullYear()+"-"+month+"-";
+    }
+    
+    var Tag=ansichtsdatum.getDate().toString();
+    
+    if (1<(Tag.length)){
          var currentDate_msql=currentDate_msql+ansichtsdatum.getDate();
     }
-    else Tag="0"+Tag;
+    else {
+    Tag="0"+Tag;
     var currentDate_msql=currentDate_msql+Tag;
+    }
     
     return currentDate_msql;
 }
@@ -180,7 +191,7 @@ window.onload = function () {
                 alert(request.responseText);
                 var items = JSON.parse(request.responseText) ;
                 alert(items.length);
-                var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie>';
+                var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie</th>';
                 for (var key in items) {
                     output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
                 }
