@@ -3,7 +3,7 @@ try {
     require_once 'dbConnect.php';
 	
 	
-    $sql= "SELECT * FROM kurs WHERE idKurs='$Kurs_idKurs'";
+    $sql= "SELECT * FROM kurs";
     $result=$datenbank->query($sql);
 } catch (Exception $e) {
     $error = $e->getMessage();
@@ -27,7 +27,7 @@ function utf8encodeArray($array) {
             $array[$key]=utf8_encode($value);
         }
     }
-    return = $arraykurse;
+    return = $array;
 }
 
 

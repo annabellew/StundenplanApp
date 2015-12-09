@@ -235,12 +235,8 @@
                             <div class="table-thing with-label widget uib_w_33 d-margins" data-uib="jquery_mobile/select" data-ver="0">
                                 <label class="narrow-control"></label>
                                 <div data-role="fieldgroup" class+="" "wide-control"="">
-                                    <select id="modul">
-                                        <option>WTA</option>
-                                        <option>DYBE</option>
-                                        <option>SEM</option>
-                                        <option>PK</option>
-                                        <option>RMAN</option>
+                                    <select id="AufgabeErstellen_kurs">
+                                        
                                     </select>
                                 </div>
                             </div>
@@ -373,7 +369,7 @@
             <div class="grid grid-pad urow uib_row_10 row-height-10" data-uib="layout/row" data-ver="0">
                 <div class="col uib_col_35 col-0_12-12" data-uib="layout/col" data-ver="0">
                     <div class="widget-container content-area vertical-col">
-                        <div id="Aufgaben_aufgaben" onload="aufgabenLaden();"></div>
+                        <div id="Aufgaben_aufgaben"></div>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -485,10 +481,8 @@
             <div class="table-thing with-label widget uib_w_79 d-margins" data-uib="jquery_mobile/select" data-ver="0">
                 <label class="narrow-control label-top-left">Modul</label>
                 <div data-role="fieldgroup" class+="" "wide-control"="">
-                    <select>
-                        <option>Fach 1</option>
-                        <option>Fach 2</option>
-                        <option>Fach 3</option>
+                    <select id="Farbe_kurs">
+                     
                     </select>
                 </div>
             </div>
@@ -665,6 +659,7 @@
         <script type="text/javascript">
             aufgabenLaden();
             kategorienLaden();
+            BenutzerkurseLaden();
         </script>
         <div class="upage vertical-col left" id="Wochenansicht" data-role="page">
             <div class="grid grid-pad urow uib_row_35 headerFooter" data-uib="layout/row" data-ver="0">

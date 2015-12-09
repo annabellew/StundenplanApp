@@ -305,10 +305,11 @@ function BenutzerkurseLaden(){
             alert(items.length);
             var output = "";
             for (var key in items) {
-                output += '<option value='+ items[key].idkategorie + '>' + items[key].kategorieName + '</option>';   
+                output += '<option value='+ items[key].Kurs_idKurs + '>' + items[key].bezeichnung + '</option>';   
             }
     
             document.getElementById('AufgabeErstellen_kurs').innerHTML = output;
+            document.getElementById('Farbe_kurs').innerHTML = output;
             }
  
     }
