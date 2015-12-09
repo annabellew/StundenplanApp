@@ -15,7 +15,7 @@
         /* button  Aufgabe hinzufügen */
      
         /* button Tag */
-     $(document).on("click", "#tag", function(evt)
+     $(document).on("click", "#startseite_tag", function(evt)
     {
          /*global activate_page */
          activate_page("#mainpage"); 
@@ -94,6 +94,62 @@
     {
          /*global activate_page */
          activate_page("#Aufgabe_erstellen"); 
+    });
+    
+        /* button  #wochenansicht_zurueck */
+    $(document).on("click", "#wochenansicht_zurueck", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Startseite"); 
+    });
+    
+        /* button  #wochenansicht_einstellungen */
+    $(document).on("click", "#wochenansicht_einstellungen", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Einstellungen"); 
+    });
+    
+        /* button  #wochenansicht_neueAufgabe */
+    $(document).on("click", "#wochenansicht_neueAufgabe", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Aufgabe_erstellen"); 
+    });
+    
+        /* button  #monatsansicht_neueAufgabe */
+    $(document).on("click", "#monatsansicht_neueAufgabe", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Aufgabe_erstellen"); 
+    });
+    
+        /* button  #monatsansicht_woche */
+    $(document).on("click", "#monatsansicht_woche", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Wochenansicht"); 
+    });
+    
+        /* button  #monatsansicht_tag */
+    $(document).on("click", "#monatsansicht_tag", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#mainpage"); 
+    });
+    
+        /* button  #monatsansicht_einstellungen */
+    $(document).on("click", "#monatsansicht_einstellungen", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Einstellungen"); 
+    });
+    
+        /* button  #monatsansicht_zurueck */
+    $(document).on("click", "#monatsansicht_zurueck", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Startseite"); 
     });
     
     }

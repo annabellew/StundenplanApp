@@ -1,0 +1,29 @@
+@gutter_r1: 20px;
+
+.uib_row_36 > .col { padding-left:(@gutter_r1 / 2); padding-right:(@gutter_r1 / 2); }
+
+@media all and (min-width: @wp_1) {
+  .uib_col_89     { width:33%;}
+  .urow.cright       > .uib_col_89     { padding-left: 0px !important;}
+  .urow:not(.cright) > .uib_col_89     { clear:left; padding-left: 0px !important; }
+  .uib_col_90     { width:34%;}
+  .uib_col_85     { width:33%;}
+  .urow:not(.cright) > .uib_col_85     { padding-right:0px !important;}
+  .urow.cright       > .uib_col_85     { clear:right; padding-right:0px !important; }
+}
+
+@media all and (min-width: @wp_2) and (max-width: @wp_1){
+  .uib_col_89.uib_col_89     { width: auto; float: none !important;  clear:both; padding-left:0px !important; padding-right:0px !important; }
+  .uib_col_90     { width:50%;}
+  .urow.cright       > .uib_col_90     { padding-left: 0px !important;}
+  .urow:not(.cright) > .uib_col_90     { clear:left; padding-left: 0px !important; }
+  .uib_col_85     { width:50%;}
+  .urow:not(.cright) > .uib_col_85     { padding-right:0px !important;}
+  .urow.cright       > .uib_col_85     { clear:right; padding-right:0px !important; }
+}
+
+@media all and (max-width: @wp_2) {
+  .col-0_4-12_4-4     { width: auto; float: none !important;  clear:both; padding-left:0px !important; padding-right:0px !important; }
+  .col-0_4-12_4-8     { width: auto; float: none !important;  clear:both; padding-left:0px !important; padding-right:0px !important; }
+  .col-0_4-12_4-8     { width: auto; float: none !important;  clear:both; padding-left:0px !important; padding-right:0px !important; }
+}
