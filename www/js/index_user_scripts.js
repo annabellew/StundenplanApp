@@ -152,6 +152,35 @@
          activate_page("#Startseite"); 
     });
     
+        /* button  #AufgabeErstellen_speichern */
+    $(document).on("click", "#AufgabeErstellen_speichern", function(evt)
+    {
+         /* your code goes here */
+        var titel= document.getElementById('titel').value;
+        var datum= document.getElementById('datum').value;
+        //alert (datum);
+        var kategorie_idkategorie= document.getElementById('AufgabeErstellen_kategorie').value;
+        var Kurs_idKurs= document.getElementById('AufgabeErstellen_kurs').value;
+        var zeit= document.getElementById('zeit').value;
+        var bemerkung= document.getElementById('bemerkung').value;
+        var erinnerung= document.getElementById('erinnerung').value;
+        //alert (bemerkung);
+        //alert (Kurs_idKurs);
+        var params = "titel="+titel+"&datum="+datum+"&kategorie_idkategorie="+kategorie_idkategorie+"&Kurs_idKurs="+BenutzerkurseLaden+"&zeit="+zeit+"&bemerkung="+bemerkung+"&erinnerung="+erinnerung;
+        var request = new XMLHttpRequest();
+        request.open('GET', "http://localhost/api/neueAufgabe.php?"+params);
+        request.onreadystatechange = function() {
+        if ((request.readyState === 4) && (request.status === 200)) {
+            alert(request.responseText);
+            var meinObject = JSON.parse(request.responseText) ;
+            alert(JSON.stringify(meinObject));
+            var output = meinObject.botschaft;             
+            document.getElementById('meldung').innerHTML = output;
+            }
+        }
+        request.send(); 
+    });
+    
     }
  document.addEventListener("app.Ready", register_event_handlers, false);
 })();

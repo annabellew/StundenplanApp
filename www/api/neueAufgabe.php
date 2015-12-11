@@ -1,15 +1,19 @@
 <?php
-include_once "getKurse.php";
     
 $titel=$_GET['titel'];
 $datum=$_GET['datum'];
-//$bemerkung=$_GET['bemerkung'];
+$bemerkung=$_GET['bemerkung'];
+$Kurs_idKurs=$_GET['Kurs_idKurs'];
+$Kurs_Dozent_idDozent=$_GET['Kurs_Dozent_idDozent'];
+$erinnerung=$_GET['erinnerung'];
+$zeit=$_GET['zeit'];
+$kalenderwoche=$_GET['kalenderwoche'];
+$kategorie_idkategorie=$_GET['kategorie_idkategorie'];
 
-echo $_SESSION["Daten"];
 
 try {
     require_once 'dbConnect.php';
-    $sql = "INSERT INTO `mydb`.`aufgabe` (`idAufgabe`, `titel`, `datum`, `bemerkung`, `Kurs_idKurs`, `Kurs_Dozent_idDozent`, `erinnerung`, `zeit`, `Benutzer_idBenutzer`, `kalenderwoche`, `kategorie_idkategorie`) VALUES (default, '{$titel}', '{$datum}', NULL, '{$Kurs_idKurs}', '6', NULL, NULL, '1', '47', '1')";
+    $sql = "INSERT INTO `mydb`.`aufgabe` (`idAufgabe`, `titel`, `datum`, `bemerkung`, `Kurs_idKurs`, `Kurs_Dozent_idDozent`, `erinnerung`, `zeit`, `Benutzer_idBenutzer`, `kalenderwoche`, `kategorie_idkategorie`) VALUES (default, '{$titel}', '{$datum}', {$bemerkung}, '{$Kurs_idKurs}', '{$Kurs_Dozent_idDozent}', '{$erinnerung}', '{$zeit}', '1', '{$kalenderwoche}', '{$kategorie_idkategorie}')";
     $result = $datenbank->query($sql);
     echo 'Rows affected: ' . $datenbank->affected_rows . '<br>';
     //echo $result . '<br>';
