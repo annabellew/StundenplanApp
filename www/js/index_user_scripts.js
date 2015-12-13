@@ -34,7 +34,7 @@
                 output += '<tr><td>' + items[key].idKurs + '</td><td>' + items[key].bezeichnung + '</td><td>' + items[key].Dozent_idDozent + '</td></tr>';   
             }
             output += '</table>';
-            document.getElementById('vorlesungen_tabelle').innerHTML = output;
+            document.getElementById('mainpage_kurse').innerHTML = output;
             }
  
         }
@@ -53,7 +53,7 @@
                     output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
                 }
                 output += '</table>';
-                document.getElementById('aufgaben_tabelle').innerHTML = output;
+                document.getElementById('mainpage_aufgaben').innerHTML = output;
                 }
 
         }
@@ -62,14 +62,14 @@
     });
     
         /* button  #Woche_neue-aufgaben */
-    $(document).on("click", "#Woche_neue-aufgaben", function(evt)
+    $(document).on("click", "#wochenansicht_neueAufgabe", function(evt)
     {
          /*global activate_page */
          activate_page("#Aufgabe_erstellen"); 
     });
     
-        /* button  #zurueck */
-    $(document).on("click", "#zurueck", function(evt)
+        /* button  #mainpage_zurueck */
+    $(document).on("click", "#mainpage_zurueck", function(evt)
     {
          /*global activate_page */
          activate_page("#Startseite"); 
@@ -83,7 +83,7 @@
     });
     
         /* button  #monat */
-    $(document).on("click", "#monat", function(evt)
+    $(document).on("click", "#startseite_monat", function(evt)
     {
          /*global activate_page */
          activate_page("#Monatsansicht"); 
@@ -181,6 +181,69 @@
         request.send(); 
     });
     
+        /* button  #mainpage_monat */
+    $(document).on("click", "#mainpage_monat", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Monatsansicht"); 
+    });
+    
+        /* button  #mainpage_woche */
+    $(document).on("click", "#mainpage_woche", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Wochenansicht"); 
+    });
+    
+        /* button  #Aufgaben_woche */
+    $(document).on("click", "#Aufgaben_woche", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Wochenansicht"); 
+    });
+    
+        /* button  #Aufgaben_monat */
+    $(document).on("click", "#Aufgaben_monat", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Monatsansicht"); 
+    });
+    
+        /* button  #Aufgaben_zurueck */
+    $(document).on("click", "#Aufgaben_zurueck", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Startseite"); 
+    });
+    
+        /* button  #Startseite_einstellungen */
+    $(document).on("click", "#Startseite_einstellungen", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Einstellungen"); 
+    });
+    
+        /* button  #Startseite_woche */
+    $(document).on("click", "#Startseite_woche", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Wochenansicht"); 
+    });
+    
+        /* button  #Startseite_monat */
+    $(document).on("click", "#Startseite_monat", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Monatsansicht"); 
+    });
+    
+        /* button  #monatsansicht_monat */
+    $(document).on("click", "#monatsansicht_monat", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#Monatsansicht"); 
+    });
+    
     }
  document.addEventListener("app.Ready", register_event_handlers, false);
 })();
@@ -190,10 +253,7 @@
 
 var ansichtsdatum = new Date();
 
-function Tagesdatum() {
-    var year = ansichtsdatum.getFullYear();
-    var day = ansichtsdatum.getDate();
-    var month = new Array();
+ var month = new Array();
     month[0] = "Januar";
     month[1] = "Februar";
     month[2] = "März";
@@ -206,12 +266,24 @@ function Tagesdatum() {
     month[9] = "Oktober";
     month[10] = "November";
     month[11] = "Dezember";
+
+function Tagesdatum() {
+    var year = ansichtsdatum.getFullYear();
+    var day = ansichtsdatum.getDate();   
     var n = month[ansichtsdatum.getMonth()]; 
     var currentDate = day + ". " + n +" " + year;
     return currentDate;
     //return day + ". " + n +" " + year;
     //document.getElementById("currentDay").innerHTML = day + ". " + n +" " + year;
 }
+
+/*Wochennummer ermitteln*/
+Date.prototype.getWeek = function() {
+				var onejan = new Date(this.getFullYear(),0,1);
+				return Math.ceil((((this - onejan) / 86400000) + onejan.getDay()+1)/7);
+			} 
+
+/*ansichtsdatum in die Form 2015-12-20 bringen für Datenbank */
 function Tagesdatum_msql (ansichtsdatum){
     var currentDate_msql="";
     var month=ansichtsdatum.getMonth();
@@ -239,19 +311,20 @@ function Tagesdatum_msql (ansichtsdatum){
     return currentDate_msql;
 }
 
-//window.onload=Tagesdatum;
+/* Tagesdatum in Header anzeigen */
 window.onload = function () {
-    document.getElementById("currentDay").innerHTML = Tagesdatum();
+    document.getElementById("mainpage_datum").innerHTML = Tagesdatum();
+    document.getElementById("wochenansicht_datum").innerHTML = "<p>Woche " +        ansichtsdatum.getWeek() + "</p>";
 }
 
- /* button  #tag_danach */
-   $(document).on("click", "#tag_danach", function(evt)
+ /* button  #mainpage_tagDanach */
+   $(document).on("click", "#mainpage_tagDanach", function(evt)
 		{
             ansichtsdatum = ansichtsdatum.setDate(ansichtsdatum.getDate() + 1);
             ansichtsdatum = new Date(ansichtsdatum);
-            document.getElementById("currentDay").innerHTML = Tagesdatum();
+            document.getElementById("mainpage_datum").innerHTML = Tagesdatum();
        
-            alert(Tagesdatum_msql(ansichtsdatum));
+            //alert(Tagesdatum_msql(ansichtsdatum));
        
             //hole Aufgaben für diesen Tag
             var request=new XMLHttpRequest();
@@ -274,12 +347,12 @@ window.onload = function () {
        
 		});
 
-/* button  #tag_davor */
-    $(document).on("click", "#tag_davor", function(evt)
+/* button  #mainpage_tagDavor */
+    $(document).on("click", "#mainpage_tagDavor", function(evt)
     {
             ansichtsdatum = ansichtsdatum.setDate(ansichtsdatum.getDate() - 1);
             ansichtsdatum = new Date(ansichtsdatum);
-            document.getElementById("currentDay").innerHTML = Tagesdatum();
+            document.getElementById("mainpage_datum").innerHTML = Tagesdatum();
     });
 
 //Aufgaben auf #Aufgaben anzeigen
@@ -303,7 +376,45 @@ function aufgabenLaden(){
     request.send();
 }
 
-//Kategorien in Auswahlmenü annzeigen
+ /* button  #wochenansicht_wocheDanach */
+   $(document).on("click", "#wochenansicht_wocheDanach", function(evt)
+		{
+            ansichtsdatum = ansichtsdatum.setDate(ansichtsdatum.getDate() + 7);
+            ansichtsdatum = new Date(ansichtsdatum);
+            document.getElementById("wochenansicht_datum").innerHTML = "<p>Woche " +        ansichtsdatum.getWeek() + "</p>";
+       });
+       
+       /* button  #wochenansicht_wocheDavor */
+   $(document).on("click", "#wochenansicht_wocheDavor", function(evt)
+		{
+            ansichtsdatum = ansichtsdatum.setDate(ansichtsdatum.getDate() - 7);
+            ansichtsdatum = new Date(ansichtsdatum);
+            document.getElementById("wochenansicht_datum").innerHTML = "<p>Woche " +        ansichtsdatum.getWeek() + "</p>";
+       });
+       
+            //alert(Tagesdatum_msql(ansichtsdatum));
+       
+            //hole Aufgaben für diesen Tag
+            var request=new XMLHttpRequest();
+            request.open('GET', "http://localhost/api/getAufgabeTag.php?ansichtsdatum="+Tagesdatum_msql(ansichtsdatum));
+            request.onreadystatechange = function() {
+                if ((request.readyState === 4) && (request.status === 200)) {
+                    alert(request.responseText);
+                    var items = JSON.parse(request.responseText) ;
+                    alert(items.length);
+                    var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie</th>';
+                    for (var key in items) {
+                        output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
+                    }
+                    output += '</table>';
+                    document.getElementById('mainpage_aufgaben').innerHTML = output;
+                } 
+
+                request.send();
+
+            };
+
+//Kategorien in Auswahlmenü anzeigen
 function kategorienLaden(){
      var request=new XMLHttpRequest();
         request.open('GET', "http://localhost/api/getKategorien.php");
