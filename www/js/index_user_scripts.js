@@ -315,6 +315,7 @@ function Tagesdatum_msql (ansichtsdatum){
 window.onload = function () {
     document.getElementById("mainpage_datum").innerHTML = Tagesdatum();
     document.getElementById("wochenansicht_datum").innerHTML = "<p>Woche " +        ansichtsdatum.getWeek() + "</p>";
+    document.getElementById("monatsansicht_datum").innerHTML = month[ansichtsdatum.getMonth()];
 }
 
  /* button  #mainpage_tagDanach */
@@ -390,6 +391,22 @@ function aufgabenLaden(){
             ansichtsdatum = ansichtsdatum.setDate(ansichtsdatum.getDate() - 7);
             ansichtsdatum = new Date(ansichtsdatum);
             document.getElementById("wochenansicht_datum").innerHTML = "<p>Woche " +        ansichtsdatum.getWeek() + "</p>";
+       });
+
+/* button  #monatsansicht_monatDanach */
+   $(document).on("click", "#monatsansicht_monatDanach", function(evt)
+		{
+            ansichtsdatum = ansichtsdatum.setMonth(ansichtsdatum.getMonth() + 1);
+            ansichtsdatum = new Date(ansichtsdatum);
+            document.getElementById("monatsansicht_datum").innerHTML = month[ansichtsdatum.getMonth()];
+       });
+
+/* button  #monatsansicht_monatDavor */
+   $(document).on("click", "#monatsansicht_monatDavor", function(evt)
+		{
+            ansichtsdatum = ansichtsdatum.setMonth(ansichtsdatum.getMonth() - 1);
+            ansichtsdatum = new Date(ansichtsdatum);
+            document.getElementById("monatsansicht_datum").innerHTML = month[ansichtsdatum.getMonth()];
        });
        
             //alert(Tagesdatum_msql(ansichtsdatum));
