@@ -365,9 +365,9 @@ function aufgabenLaden(){
             //alert(request.responseText);
             var items = JSON.parse(request.responseText) ;
             //alert(items.length);
-            var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie>';
+            var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Zeit</th><th>Kurs</th><th>Kategorie</th>';
             for (var key in items) {
-                output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
+                output += '<tr bgcolor='+items[key].code+'><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].zeit + '</td><td>' + items[key].bezeichnung + '</td><td>' + items[key].kategorieName + '</td></tr>';   
             }
             output += '</table>';
             document.getElementById('Aufgaben_aufgaben').innerHTML = output;
