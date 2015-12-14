@@ -247,17 +247,21 @@
      /* button  #Farbe_farbeAuswaehlen */
     $(document).on("click", "#Farbe_farbeAuswaehlen", function(evt)
     {
-          var titel= document.getElementById('titel').value;
-        var datum= document.getElementById('datum').value;
-        //alert (datum);
-        var kategorie_idkategorie= document.getElementById('AufgabeErstellen_kategorie').value;
-        var Kurs_idKurs= document.getElementById('AufgabeErstellen_kurs').value;
-        var zeit= document.getElementById('zeit').value;
-        var bemerkung= document.getElementById('bemerkung').value;
-        var erinnerung= document.getElementById('erinnerung').value;
-        //alert (bemerkung);
-        //alert (Kurs_idKurs);
-        var params = "titel="+titel+"&datum="+datum+"&kategorie_idkategorie="+kategorie_idkategorie+"&Kurs_idKurs="+BenutzerkurseLaden+"&zeit="+zeit+"&bemerkung="+bemerkung+"&erinnerung="+erinnerung;
+        
+        var anzahl = document.getElementById("Farben_farben").elements.length;
+       
+       for (var i=1;i<=anzahl; i++) {
+            if (document.getElementById('r'+i).checked) {
+                var rate_value = document.getElementById('r'+i).value;
+                alert(rate_value);
+             }
+       }
+
+        
+       var kurs= document.getElementById('Farbe_kurs').value;
+        alert(rate_value);
+        var farbe= rate_value;
+        var params = "Kurs_idKurs="+kurs+"&Farbe_idFarbe="+farbe;
         var request = new XMLHttpRequest();
         request.open('GET', "http://localhost/api/farbeSetzen.php?"+params);
         request.onreadystatechange = function() {
@@ -269,7 +273,9 @@
             document.getElementById('meldung').innerHTML = output;
             }
         }
-        request.send(); 
+        request.send();
+       
+        
     });
     
     }
@@ -509,13 +515,15 @@ function FarbenLaden(){
             alert(request.responseText);
             var items = JSON.parse(request.responseText) ;
             alert(items.length);
-            var output = "<form>";
+            var output = "";
+            var i =1;
             for (var key in items) {
-                output +='<label for="'+items[key].farbname+'">'+items[key].farbname+'</label><input type="radio" name="Farbe" id="'+items[key].farbname+'" value="'+items[key].idFarbe+'"><br>';   
+                output +='<input type="radio" name="Farbe" id="r'+i+'" value="'+items[key].idFarbe+'">'+items[key].farbname+'<br>';   
+                i++;
             }
-            output+="</form>"
+            
     
-            document.getElementById('Farbe_Namen').innerHTML = output;
+            document.getElementById('Farben_farben').innerHTML = output;
             
             }
     
