@@ -243,6 +243,34 @@
          /*global activate_page */
          activate_page("#Monatsansicht"); 
     });
+     
+     /* button  #Farbe_farbeAuswaehlen */
+    $(document).on("click", "#Farbe_farbeAuswaehlen", function(evt)
+    {
+          var titel= document.getElementById('titel').value;
+        var datum= document.getElementById('datum').value;
+        //alert (datum);
+        var kategorie_idkategorie= document.getElementById('AufgabeErstellen_kategorie').value;
+        var Kurs_idKurs= document.getElementById('AufgabeErstellen_kurs').value;
+        var zeit= document.getElementById('zeit').value;
+        var bemerkung= document.getElementById('bemerkung').value;
+        var erinnerung= document.getElementById('erinnerung').value;
+        //alert (bemerkung);
+        //alert (Kurs_idKurs);
+        var params = "titel="+titel+"&datum="+datum+"&kategorie_idkategorie="+kategorie_idkategorie+"&Kurs_idKurs="+BenutzerkurseLaden+"&zeit="+zeit+"&bemerkung="+bemerkung+"&erinnerung="+erinnerung;
+        var request = new XMLHttpRequest();
+        request.open('GET', "http://localhost/api/farbeSetzen.php?"+params);
+        request.onreadystatechange = function() {
+        if ((request.readyState === 4) && (request.status === 200)) {
+            alert(request.responseText);
+            var meinObject = JSON.parse(request.responseText) ;
+            alert(JSON.stringify(meinObject));
+            var output = meinObject.botschaft;             
+            document.getElementById('meldung').innerHTML = output;
+            }
+        }
+        request.send(); 
+    });
     
     }
  document.addEventListener("app.Ready", register_event_handlers, false);
@@ -468,6 +496,29 @@ function BenutzerkurseLaden(){
             document.getElementById('AufgabeErstellen_kurs').innerHTML = output;
             document.getElementById('Farbe_kurs').innerHTML = output;
             }
+ 
+    }
+    request.send();
+}
+
+function FarbenLaden(){
+     var request=new XMLHttpRequest();
+        request.open('GET', "http://localhost/api/getFarben.php");
+        request.onreadystatechange = function() {
+        if ((request.readyState === 4) && (request.status === 200)) {
+            alert(request.responseText);
+            var items = JSON.parse(request.responseText) ;
+            alert(items.length);
+            var output = "<form>";
+            for (var key in items) {
+                output +='<label for="'+items[key].farbname+'">'+items[key].farbname+'</label><input type="radio" name="Farbe" id="'+items[key].farbname+'" value="'+items[key].idFarbe+'"><br>';   
+            }
+            output+="</form>"
+    
+            document.getElementById('Farbe_Namen').innerHTML = output;
+            
+            }
+    
  
     }
     request.send();

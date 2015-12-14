@@ -488,43 +488,16 @@
                 </div>
             </div>
             <div class="table-thing with-label no_wrap widget uib_w_80 d-margins" data-uib="jquery_mobile/radio_button_group" data-ver="0">
-                <label class="narrow-control label-top-left">Fach</label>
+                <label class="narrow-control label-top-left">Farbe</label>
                 <fieldset data-role="controlgroup" class="widget-container wide-control uib-jqm-flex" data-child-name="Farbe">
-                    <div class="ui-radio widget uib_w_81" data-uib="jquery_mobile/radio_button" data-ver="0">
-                        <label>Orange
-                            <input type="radio" name="Farbe">
-                        </label>
-                    </div>
-                    <div class="ui-radio widget uib_w_86" data-uib="jquery_mobile/radio_button" data-ver="0">
-                        <label>Gelb
-                            <input type="radio" name="Farbe">
-                        </label>
-                    </div>
-                    <div class="ui-radio widget uib_w_82" data-uib="jquery_mobile/radio_button" data-ver="0">
-                        <label>Blau
-                            <input type="radio" name="Farbe">
-                        </label>
-                    </div>
-                    <div class="ui-radio widget uib_w_83" data-uib="jquery_mobile/radio_button" data-ver="0">
-                        <label>Grün
-                            <input type="radio" name="Farbe">
-                        </label>
-                    </div>
-                    <div class="ui-radio widget uib_w_84" data-uib="jquery_mobile/radio_button" data-ver="0">
-                        <label>Rot
-                            <input type="radio" name="Farbe">
-                        </label>
-                    </div>
-                    <div class="ui-radio widget uib_w_85" data-uib="jquery_mobile/radio_button" data-ver="0">
-                        <label>Violet
-                            <input type="radio" name="Farbe">
-                        </label>
+                    <div id="Farbe_Namen">
+
                     </div>
                 </fieldset>
             </div>
             <div class="grid grid-pad urow uib_row_26 row-height-26" data-uib="layout/row" data-ver="0">
                 <div class="col uib_col_64 col-0_12-12" data-uib="layout/col" data-ver="0">
-                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_87 button_gross" data-uib="jquery_mobile/button" data-ver="0" data-role="button" href="#Farbe" data-transition="fade" id="Farbe_farbeAuswaehlen">Farbe auswählen</a>
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_112 d-margins button_gross" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="Farbe_farbeAuswaehlen">Farbe auswählen</a>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -538,7 +511,7 @@
                     </div>
                 </div>
                 <div class="col uib_col_66 col-0_6-12" data-uib="layout/col" data-ver="0">
-                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_89 button_mittel" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="Frabe_abbrechen" href="#Einstellungen" data-transition="fade">Abbrechen</a>
+                    <div class="widget-container content-area vertical-col"><a class="widget uib_w_89 button_mittel" data-uib="jquery_mobile/button" data-ver="0" data-role="button" id="Farbe_abbrechen" href="#Einstellungen" data-transition="fade">Abbrechen</a>
                         <span class="uib_shim"></span>
                     </div>
                 </div>
@@ -669,13 +642,14 @@
                 <span class="uib_shim"></span>
             </div>
         </div>
-        
+
         <script type="text/javascript">
             aufgabenLaden();
             kategorienLaden();
             BenutzerkurseLaden();
+            FarbenLaden();
         </script>
-       
+
         <div class="upage vertical-col left" id="Wochenansicht" data-role="page">
             <div class="grid grid-pad urow uib_row_35 headerFooter" data-uib="layout/row" data-ver="0">
                 <div class="col uib_col_81 col-0_2-12_2-4_2-4 columnHeader" data-uib="layout/col" data-ver="0">

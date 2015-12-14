@@ -1,19 +1,14 @@
 <?php
     
-$titel=$_GET['titel'];
-$datum=$_GET['datum'];
-$bemerkung=$_GET['bemerkung'];
+
 $Kurs_idKurs=$_GET['Kurs_idKurs'];
-$Kurs_Dozent_idDozent=$_GET['Kurs_Dozent_idDozent'];
-$erinnerung=$_GET['erinnerung'];
-$zeit=$_GET['zeit'];
-$kalenderwoche=$_GET['kalenderwoche'];
-$kategorie_idkategorie=$_GET['kategorie_idkategorie'];
+$Farbe_idFarbe=$_GET['Farbe_idFarbe'];
+
 
 
 try {
     require_once 'dbConnect.php';
-    $sql = "INSERT INTO `mydb`.`aufgabe` (`idAufgabe`, `titel`, `datum`, `bemerkung`, `Kurs_idKurs`, `Kurs_Dozent_idDozent`, `erinnerung`, `zeit`, `Benutzer_idBenutzer`, `kalenderwoche`, `kategorie_idkategorie`) VALUES (default, '{$titel}', '{$datum}', {$bemerkung}, '{$Kurs_idKurs}', '{$Kurs_Dozent_idDozent}', '{$erinnerung}', '{$zeit}', '1', '{$kalenderwoche}', '{$kategorie_idkategorie}')";
+        $sql = "UPDATE `mydb`.`benutzer_has_kurs` SET `Farbe_idFarbe` = $Farbe_idFarbe WHERE `benutzer_has_kurs`.`Benutzer_idBenutzer` = 1 AND `benutzer_has_kurs`.`Kurs_idKurs`= $Kurs_idKurs";
     $result = $datenbank->query($sql);
     echo 'Rows affected: ' . $datenbank->affected_rows . '<br>';
     //echo $result . '<br>';
