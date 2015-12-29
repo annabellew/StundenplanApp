@@ -14,9 +14,9 @@ try {
     //echo $result . '<br>';
     if($result){
         // $result ist 1 wenn das insert statement ausgeführt wurde, sonst ist es leer
-        $response=array("fehlercode"=>"1","botschaft"=>"Benutzer gespeichert!");
+        $response=array("fehlercode"=>"1","botschaft"=>"Änderung gespeichert!");
     } else {
-        $response=array("fehlercode"=>"0","botschaft"=>"Benutzer nicht gespeichert, existiert schon.");
+        $response=array("fehlercode"=>"0","botschaft"=>"Änderung nicht gespeichert");
     }
     //var_dump($response);
     // echo '<pre>';

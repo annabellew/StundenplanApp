@@ -45,9 +45,9 @@
             request.open('GET', "http://localhost/api/getAufgaben.php");
             request.onreadystatechange = function() {
             if ((request.readyState === 4) && (request.status === 200)) {
-                alert(request.responseText);
+                //alert(request.responseText);
                 var items = JSON.parse(request.responseText) ;
-                alert(items.length);
+                //alert(items.length);
                 var output = '<p>Aufgaben</p><table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie>';
                 for (var key in items) {
                     output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
@@ -171,11 +171,11 @@
         request.open('GET', "http://localhost/api/neueAufgabe.php?"+params);
         request.onreadystatechange = function() {
         if ((request.readyState === 4) && (request.status === 200)) {
-            alert(request.responseText);
+            //alert(request.responseText);
             var meinObject = JSON.parse(request.responseText) ;
-            alert(JSON.stringify(meinObject));
+            //alert(JSON.stringify(meinObject));
             var output = meinObject.botschaft;             
-            document.getElementById('meldung').innerHTML = output;
+            document.getElementById("Farbe_meldung").innerHTML = output;
             }
         }
         request.send(); 
@@ -253,22 +253,22 @@
        for (var i=1;i<=anzahl; i++) {
             if (document.getElementById('r'+i).checked) {
                 var rate_value = document.getElementById('r'+i).value;
-                alert(rate_value);
+                //alert(rate_value);
              }
        }
 
         
        var kurs= document.getElementById('Farbe_kurs').value;
-        alert(rate_value);
+        //alert(rate_value);
         var farbe= rate_value;
         var params = "Kurs_idKurs="+kurs+"&Farbe_idFarbe="+farbe;
         var request = new XMLHttpRequest();
         request.open('GET', "http://localhost/api/farbeSetzen.php?"+params);
         request.onreadystatechange = function() {
         if ((request.readyState === 4) && (request.status === 200)) {
-            alert(request.responseText);
+            //alert(request.responseText);
             var meinObject = JSON.parse(request.responseText) ;
-            alert(JSON.stringify(meinObject));
+            //alert(JSON.stringify(meinObject));
             var output = meinObject.botschaft;             
             document.getElementById('meldung').innerHTML = output;
             }
@@ -366,20 +366,37 @@ window.onload = function () {
             request.open('GET', "http://localhost/api/getAufgabeTag.php?ansichtsdatum="+Tagesdatum_msql(ansichtsdatum));
             request.onreadystatechange = function() {
             if ((request.readyState === 4) && (request.status === 200)) {
-                alert(request.responseText);
+                //alert(request.responseText);
                 var items = JSON.parse(request.responseText) ;
-                alert(items.length);
+                //alert(items.length);
                 var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie</th>';
                 for (var key in items) {
-                    output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
+                    output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].bezeichnung + '</td><td>' + items[key].kategorieName + '</td></tr>';   
                 }
             output += '</table>';
             document.getElementById('mainpage_aufgaben').innerHTML = output;
             }
  
             }
+            
+            var request_=new XMLHttpRequest();
+            request_.open('GET', "http://localhost/api/getKurseTag.php?ansichtsdatum="+Tagesdatum_msql(ansichtsdatum));
+            request_.onreadystatechange = function() {
+            if ((request_.readyState === 4) && (request_.status === 200)) {
+                alert(request_.responseText);
+                var items = JSON.parse(request_.responseText) ;
+                alert(items.length);
+                var output = '<table border="1"><tr><th>Kurs</th><th>Datum</th><th>Raum</th><th>Dozent</th>';
+                for (var key in items) {
+                    output += '<tr><td>' + items[key].bezeichnung + '</td><td>' + items[key].datum + '</td><td>' + items[key].raum + '</td><td>' + items[key].nachname + '</td></tr>';   
+                }
+            output += '</table>';
+            document.getElementById('mainpage_kurse').innerHTML = output;
+            }
+ 
+            }
         request.send();
-       
+        request_.send();
 		});
 
 /* button  #mainpage_tagDavor */
@@ -450,9 +467,9 @@ function aufgabenLaden(){
             request.open('GET', "http://localhost/api/getAufgabeTag.php?ansichtsdatum="+Tagesdatum_msql(ansichtsdatum));
             request.onreadystatechange = function() {
                 if ((request.readyState === 4) && (request.status === 200)) {
-                    alert(request.responseText);
+                    //alert(request.responseText);
                     var items = JSON.parse(request.responseText) ;
-                    alert(items.length);
+                    //alert(items.length);
                     var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie</th>';
                     for (var key in items) {
                         output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
@@ -491,9 +508,9 @@ function BenutzerkurseLaden(){
         request.open('GET', "http://localhost/api/getBenutzerkurse.php");
         request.onreadystatechange = function() {
         if ((request.readyState === 4) && (request.status === 200)) {
-            alert(request.responseText);
+            //alert(request.responseText);
             var items = JSON.parse(request.responseText) ;
-            alert(items.length);
+            //alert(items.length);
             var output = "";
             for (var key in items) {
                 output += '<option value='+ items[key].Kurs_idKurs + '>' + items[key].bezeichnung + '</option>';   
@@ -512,9 +529,9 @@ function FarbenLaden(){
         request.open('GET', "http://localhost/api/getFarben.php");
         request.onreadystatechange = function() {
         if ((request.readyState === 4) && (request.status === 200)) {
-            alert(request.responseText);
+            //alert(request.responseText);
             var items = JSON.parse(request.responseText) ;
-            alert(items.length);
+            //alert(items.length);
             var output = "";
             var i =1;
             for (var key in items) {
