@@ -10,12 +10,15 @@ try {
             a.datum,
             a.zeit,
             c.bezeichnung,
-            d.kategorieName
+            d.kategorieName,
+            s.code
           FROM
             aufgabe a
             
           INNER JOIN benutzer_has_kurs p
                 ON a.Kurs_idKurs=p.Kurs_idKurs
+          INNER JOIN farbe s
+                ON s.idFarbe=p.Farbe_idFarbe
           INNER JOIN farbe b
                 ON b.idFarbe=p.Farbe_idFarbe
           INNER JOIN kurs c

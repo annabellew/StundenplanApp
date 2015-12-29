@@ -22,7 +22,7 @@
          
          /* Tabelle Kurse */
          /* To do: nur Kurse des gewählten Tages ausgeben */
-        var request1=new XMLHttpRequest();
+        /*var request1=new XMLHttpRequest();
         request.open('GET', "http://localhost/api/getKurs.php");
         request.onreadystatechange = function() {
         if ((request.readyState === 4) && (request.status === 200)) {
@@ -31,7 +31,7 @@
             //alert(items.length);
             var output = '<p>Kurse</p><table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie>';
             for (var key in items) {
-                output += '<tr><td>' + items[key].idKurs + '</td><td>' + items[key].bezeichnung + '</td><td>' + items[key].Dozent_idDozent + '</td></tr>';   
+                output += '<tr bgcolor='+items[key].code+'><td>' + items[key].idKurs + '</td><td>' + items[key].bezeichnung + '</td><td>' + items[key].Dozent_idDozent + '</td></tr>';   
             }
             output += '</table>';
             document.getElementById('mainpage_kurse').innerHTML = output;
@@ -41,7 +41,7 @@
              
         /* Tabelle Aufgaben */
          /* To do: nur Aufgaben des gewählten Tages ausgeben */
-         var request2=new XMLHttpRequest();
+        /* var request2=new XMLHttpRequest();
             request.open('GET', "http://localhost/api/getAufgaben.php");
             request.onreadystatechange = function() {
             if ((request.readyState === 4) && (request.status === 200)) {
@@ -59,6 +59,7 @@
         }
         request1.send();
         request2.send();
+         */
     });
     
         /* button  #Woche_neue-aufgaben */
@@ -175,7 +176,7 @@
             var meinObject = JSON.parse(request.responseText) ;
             //alert(JSON.stringify(meinObject));
             var output = meinObject.botschaft;             
-            document.getElementById("Farbe_meldung").innerHTML = output;
+            document.getElementById("meldung").innerHTML = output;
             }
         }
         request.send(); 
@@ -270,7 +271,7 @@
             var meinObject = JSON.parse(request.responseText) ;
             //alert(JSON.stringify(meinObject));
             var output = meinObject.botschaft;             
-            document.getElementById('meldung').innerHTML = output;
+            document.getElementById('Farbe_meldung').innerHTML = output;
             }
         }
         request.send();
@@ -371,7 +372,7 @@ window.onload = function () {
                 //alert(items.length);
                 var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie</th>';
                 for (var key in items) {
-                    output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].bezeichnung + '</td><td>' + items[key].kategorieName + '</td></tr>';   
+                    output += '<tr bgcolor='+items[key].code+'><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].bezeichnung + '</td><td>' + items[key].kategorieName + '</td></tr>';   
                 }
             output += '</table>';
             document.getElementById('mainpage_aufgaben').innerHTML = output;
@@ -383,12 +384,12 @@ window.onload = function () {
             request_.open('GET', "http://localhost/api/getKurseTag.php?ansichtsdatum="+Tagesdatum_msql(ansichtsdatum));
             request_.onreadystatechange = function() {
             if ((request_.readyState === 4) && (request_.status === 200)) {
-                alert(request_.responseText);
+                //alert(request_.responseText);
                 var items = JSON.parse(request_.responseText) ;
-                alert(items.length);
+                //alert(items.length);
                 var output = '<table border="1"><tr><th>Kurs</th><th>Datum</th><th>Raum</th><th>Dozent</th>';
                 for (var key in items) {
-                    output += '<tr><td>' + items[key].bezeichnung + '</td><td>' + items[key].datum + '</td><td>' + items[key].raum + '</td><td>' + items[key].nachname + '</td></tr>';   
+                    output += '<tr bgcolor='+items[key].code+'><td>' + items[key].bezeichnung + '</td><td>' + items[key].datum + '</td><td>' + items[key].raum + '</td><td>' + items[key].nachname + '</td></tr>';   
                 }
             output += '</table>';
             document.getElementById('mainpage_kurse').innerHTML = output;
@@ -405,6 +406,45 @@ window.onload = function () {
             ansichtsdatum = ansichtsdatum.setDate(ansichtsdatum.getDate() - 1);
             ansichtsdatum = new Date(ansichtsdatum);
             document.getElementById("mainpage_datum").innerHTML = Tagesdatum();
+        
+        //hole Aufgaben für diesen Tag
+            var request=new XMLHttpRequest();
+            request.open('GET', "http://localhost/api/getAufgabeTag.php?ansichtsdatum="+Tagesdatum_msql(ansichtsdatum));
+            request.onreadystatechange = function() {
+            if ((request.readyState === 4) && (request.status === 200)) {
+                //alert(request.responseText);
+                var items = JSON.parse(request.responseText) ;
+                //alert(items.length);
+                var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie</th>';
+                for (var key in items) {
+                    output += '<tr bgcolor='+items[key].code+'><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].bezeichnung + '</td><td>' + items[key].kategorieName + '</td></tr>';   
+                }
+            output += '</table>';
+            document.getElementById('mainpage_aufgaben').innerHTML = output;
+            }
+ 
+            }
+            
+            var request_=new XMLHttpRequest();
+            request_.open('GET', "http://localhost/api/getKurseTag.php?ansichtsdatum="+Tagesdatum_msql(ansichtsdatum));
+            request_.onreadystatechange = function() {
+            if ((request_.readyState === 4) && (request_.status === 200)) {
+                //alert(request_.responseText);
+                var items = JSON.parse(request_.responseText) ;
+                //alert(items.length);
+                var output = '<table border="1"><tr><th>Kurs</th><th>Datum</th><th>Raum</th><th>Dozent</th>';
+                for (var key in items) {
+                    output += '<tr bgcolor='+items[key].code+'><td>' + items[key].bezeichnung + '</td><td>' + items[key].datum + '</td><td>' + items[key].raum + '</td><td>' + items[key].nachname + '</td></tr>';   
+                }
+            output += '</table>';
+            document.getElementById('mainpage_kurse').innerHTML = output;
+            }
+ 
+            }
+        request.send();
+        request_.send();
+        
+        
     });
 
 //Aufgaben auf #Aufgaben anzeigen
@@ -472,7 +512,7 @@ function aufgabenLaden(){
                     //alert(items.length);
                     var output = '<table border="1"><tr><th>Aufgabe</th><th>Datum</th><th>Kurs</th><th>Kategorie</th>';
                     for (var key in items) {
-                        output += '<tr><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
+                        output += '<tr bgcolor='+items[key].code+'><td>' + items[key].titel + '</td><td>' + items[key].datum + '</td><td>' + items[key].Kurs_idKurs + '</td><td>' + items[key].kategorie_idkategorie + '</td></tr>';   
                     }
                     output += '</table>';
                     document.getElementById('mainpage_aufgaben').innerHTML = output;
